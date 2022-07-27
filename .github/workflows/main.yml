@@ -43,7 +43,6 @@ jobs:
       EMAIL: ${{ secrets.EMAIL }}
       HEROKU_APP_JSON_CONFIG: ${{ secrets.HEROKU_APP_JSON_CONFIG }}
       HEROKU_APP_PRIVATE_K_IV: ${{ secrets.HEROKU_APP_PRIVATE_K_IV }}
-      HEROKU_APP_URL_PATH: ${{ secrets.HEROKU_APP_URL_PATH }}
       HEROKU_TUNNEL_TOKEN: ${{ secrets.HEROKU_TUNNEL_TOKEN }}
     steps:
       - run: |
@@ -66,9 +65,6 @@ jobs:
       - id: HEROKU_APP_PRIVATE_K_IV_is_empty
         if: ${{ env.HEROKU_APP_PRIVATE_K_IV == ''}}
         run: echo HEROKU_APP_PRIVATE_K_IV is empty
-      - id: HEROKU_APP_URL_PATH_is_empty
-        if: ${{ env.HEROKU_APP_URL_PATH == ''}}
-        run: echo HEROKU_APP_URL_PATH is empty
       - id: HEROKU_TUNNEL_TOKEN_is_empty
         if: ${{ env.HEROKU_TUNNEL_TOKEN == ''}}
         run: echo HEROKU_TUNNEL_TOKEN is empty
@@ -97,7 +93,6 @@ jobs:
           # 这是为了heroku，注意前缀有个HD，这是为了告诉heroku-deploy，这些变量需要传入到 container 中。
           HD_APP_JSON_CONFIG: ${{ secrets.HEROKU_APP_JSON_CONFIG }} # app json配置文件
           HD_APP_PRIVATE_K_IV: ${{ secrets.HEROKU_APP_PRIVATE_K_IV }} # app private keys
-          HD_APP_URL_PATH: ${{ secrets.HEROKU_APP_URL_PATH }} # app url path
           HD_TUNNEL_TOKEN: ${{ secrets.HEROKU_TUNNEL_TOKEN }}
           NODE_ENV: production
           SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}

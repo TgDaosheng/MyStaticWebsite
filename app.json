@@ -17,11 +17,6 @@
             "value": "",
             "required": false
         },
-        "APP_URL_PATH": {
-            "description": "app url path",
-            "value": "",
-            "required": false
-        },
         "TUNNEL_TOKEN": {
             "description": "Cloudflare Tunnel Token",
             "value": "",
